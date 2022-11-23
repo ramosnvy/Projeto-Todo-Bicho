@@ -3,9 +3,6 @@
 use \App\Controller\Pages;
 use App\Http\Response;
 
-
-
-
 //ROTA ADOÇÃO
 $obRouter->get('/adote',[
     function(){
@@ -41,13 +38,6 @@ $obRouter->get('/painel', [
     }
 ]);
 
-
-//ROTA PAINEL
-$obRouter->get('/painel', [
-    function($request){
-        return new Response(200, Pages\Painel::removeAnimal($request));
-    }
-]);
 
 //ROTA CADASTRAR
 $obRouter->get('/cadastrar', [
