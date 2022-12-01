@@ -50,7 +50,7 @@ $obRouter->get('/painel', [ 'middlewares' =>['required-admin-login'],
 //ROTA PAINEL
 $obRouter->get('/delete', [ 'middlewares' =>['required-admin-login'],
     function(){
-        return new Response(200, Pages\());
+        return new Response(200, Pages());
     }
 ]);
 
