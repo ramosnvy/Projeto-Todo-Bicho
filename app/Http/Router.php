@@ -75,13 +75,13 @@ class Router
             if($value instanceof Closure){
                 $params['controller'] = $value;
                 unset($params[$key]);
+                continue;
 
             }
         }
 
         //Middlewares da rota
         $params['middlewares'] = $params['middlewares'] ?? [];
-
 
         //VARIÁVEIS DA ROTA
         $params['variables'] = [];
@@ -193,7 +193,7 @@ class Router
     /**
      * Método responsável por executar a rota atual
      * @return Response
-    */
+     */
     public function run()
     {
         try {
@@ -214,12 +214,27 @@ class Router
                 $args[$name] = $route['variables'][$name] ?? '';
             }
 
-            //Retorna a execução da função
-            return(new MiddlewareQueue($route['middlewares'], $route['controller'], $args))->next($this->request);
+
+            //Retorna a execução da fila de middlewares
+            return (new MiddlewareQueue($route['middlewares'], $route['controller'], $args))->next($this->request);
         }catch (\Exception $e){
             return new Response($e->getCode(), $e->getMessage());
         }
     }
 
+
+    /**
+     * Método responsável por redirecionar a URL
+     * @param string $route
+     *
+     */
+    public function redirect($route){
+        //URL
+        $url = $this->url.$route;
+
+        //EXECUTA O REDIRECT
+        header('location:'. $url);
+        exit;
+    }
 
 }
