@@ -10,5 +10,8 @@
     "william-costa/dot-env": "^0.1.0",
     "ext-pdo": "*",
     "ext-mysql_xdevapi": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.5"
   }
 }

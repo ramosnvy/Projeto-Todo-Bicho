@@ -115,15 +115,21 @@ class Animal
 
     }
 
-    public function remove()
+    public static function getAnimalById($id)
     {
-        $wehre =" 'animais'.'id' = $this->id; ";
-
-        echo $wehre;
-
-       $this->id= (new Database('animais')) ->delete("$");
+        return self::getAnimais('id ='.$id)->fetchObject(self::class);
     }
 
+
+
+    public function getDeleteAnimal($request, $id)
+    {
+        $obAnimal = Animal::getAnimalById($id);
+    }
+
+    public function excluir(){
+        return (new Database('animais'))->delete('id = '.$this->id);
+    }
 
     /**
      * Método responsável por retornar os animais

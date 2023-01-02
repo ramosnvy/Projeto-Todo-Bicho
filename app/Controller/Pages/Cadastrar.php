@@ -39,7 +39,7 @@ class Cadastrar extends Page {
 
 
 
-        return self::getCadastrar();
+        return Painel::getPainel();
     }
 
 

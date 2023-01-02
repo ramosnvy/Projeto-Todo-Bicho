@@ -23,7 +23,7 @@ class Painel extends Page {
 
         //Renderiza
         while($obAnimal = $results->fetchObject(Animal::class)){
-            $card .= View::render('pages/painel/card', ['name'=>$obAnimal->nome, 'description'=>$obAnimal->descricao ,'imagem'=>$obAnimal->imagem]);
+            $card .= View::render('pages/painel/card', ['id'=>$obAnimal->id,'name'=>$obAnimal->nome, 'description'=>$obAnimal->descricao ,'imagem'=>$obAnimal->imagem]);
         }
 
         return $card;
@@ -43,18 +43,17 @@ class Painel extends Page {
         return self::getPrivatePage('Painel', $content);
     }
 
-    public static function removeAnimal($request)
+    public static function setDeleteAnimal($request)
     {
-        $postVars = $request->getPostVars();
-
-        //Novo instancia de Animais
-        $obAnimail = new Animal();
-
-        $obAnimail->remove();
+        $id = $_GET['id'];
 
 
+        $obAnimal = Animal::getAnimalById($id);
 
-        return self::getPainel();
+        $obAnimal->excluir();
+
+        $request->getRouter()->redirect('/painel');
+
 
     }
 

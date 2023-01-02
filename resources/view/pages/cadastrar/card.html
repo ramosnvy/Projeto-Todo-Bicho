@@ -1,7 +1,10 @@
 
     <div class="card  col-md-3  " style="width: 20rem;">
-      <img class="card-img-top" src={{imagem}} alt="Card image cap">
+        <div class="w-full h-30">
+      <img class="card-img-top w-full h-full" src={{imagem}} alt="Card image cap">
+        </div>
       <div class="card-body">
+
         <h5 class="card-title">{{name}}</h5>
 
         <p class="card-text">{{description}}</p>
@@ -10,8 +13,8 @@
       </div>
 
         <div class="card-footer-btn">
-            <button type="button" class="btn btn-success btn-lg btn-block">Adotar</button>
-            <button type="button" class="btn btn-success btn-lg btn-block">Apadrinhar</button>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScPnNVMKjj-TvvGQXmQ_gDmHZn39xkvEvqVT2cf18v7zvZkEQ/viewform"><button type="button" class="btn btn-success btn-lg btn-block">Adotar</button></a>
+            <a href="https://api.whatsapp.com/send/?phone=5511998973034&text=Ol%C3%A1%2C+gostaria+de+apadrinhar+a(o)+{{name}}%21&type=phone_number&app_absent=0"><button type="button" class="btn btn-success btn-lg btn-block">Apadrinhar</button></a>
         </div>
 
     </div>

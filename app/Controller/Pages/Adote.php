@@ -24,7 +24,7 @@ class Adote extends Page {
 
         //Renderiza
         while($obAnimal = $results->fetchObject(Animal::class)){
-            $card .= View::render('pages/cadastrar/card', ['name'=>$obAnimal->nome, 'description'=>$obAnimal->descricao ,'imagem'=>$obAnimal->imagem]);
+            $card .= View::render('pages/cadastrar/card', [ 'name'=>$obAnimal->nome, 'description'=>$obAnimal->descricao ,'imagem'=>$obAnimal->imagem]);
         }
 
         return $card;

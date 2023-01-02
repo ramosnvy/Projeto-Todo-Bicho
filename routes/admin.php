@@ -49,10 +49,11 @@ $obRouter->get('/painel', [ 'middlewares' =>['required-admin-login'],
 
 //ROTA PAINEL
 $obRouter->get('/delete', [ 'middlewares' =>['required-admin-login'],
-    function(){
-        return new Response(200, Pages());
+    function($request){
+        return new Response(200, Pages\Painel::setDeleteAnimal($request));
     }
 ]);
+
 
 
 

@@ -136,7 +136,7 @@ class Router
      * @param $route
      * @param $params
      */
-    public function DELETE($route, $params = []){
+    public function delete($route, $params = []){
         return $this->addRoute('DELETE', $route, $params);
 
     }
